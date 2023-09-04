@@ -7,6 +7,8 @@ To write a program to implement the simple linear regression model for predictin
 1. Hardware – PCs
 2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
+
+
 ## Algorithm
 ~~~
 1. Import the required Libraries.
@@ -16,6 +18,9 @@ To write a program to implement the simple linear regression model for predictin
 5.Print the plot.
 6.End the program
 ~~~
+
+
+
 ## Program:
 ```
 ~~~
@@ -53,6 +58,7 @@ plt.show()
 
 ## Output:
 ![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/ff862789-e085-4f1e-bda8-8c8d51f73aba)
+
 
 
 ## Result:
