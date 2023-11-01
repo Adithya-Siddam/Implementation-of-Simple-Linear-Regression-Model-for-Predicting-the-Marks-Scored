@@ -27,38 +27,63 @@ To write a program to implement the simple linear regression model for predictin
 #developed by : S Adithya Chowdary.
 #Reference number: 212221230100.
 ~~~
-import numpy as np
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-
-dataset = pd.read_csv('student_scores.csv')
-dataset.head()
-X = dataset.iloc[:,:-1].values
-Y = dataset.iloc[:,1].values
+from sklearn.metrics import mean_absolute_error,mean_squared_error
+df=pd.read_csv('/content/student_scores.csv')
+df.head()
+df.tail()
+x=df.iloc[:,:-1].values
+x
+y=df.iloc[:,1].values
+y
 from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=1/3,random_state=0)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
 from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
-regressor.fit(X_train,Y_train)
-Y_pred = regressor.predict(X_test)
-plt.scatter(X_train,Y_train,color='red')
-plt.plot(X_train,regressor.predict(X_train),color='blue')
-plt.title("Hours vs Scores(Training set)")
-plt.xlabel("Hours")
-plt.ylabel("Score")
+regressor=LinearRegression()
+regressor.fit(x_train,y_train)
+y_pred=regressor.predict(x_test)
+y_pred
+y_test
+plt.scatter(x_train,y_train,color="black") 
+plt.plot(x_train,regressor.predict(x_train),color="red") 
+plt.title("Hours VS scores (learning set)") 
+plt.xlabel("Hours") 
+plt.ylabel("Scores") 
 plt.show()
-plt.scatter(X_test,Y_test,color='red')
-plt.plot(X_train,regressor.predict(X_train),color='blue')
-plt.title("Hours vs scores (Testing set)")
+plt.scatter(x_test,y_test,color="cyan")
+plt.plot(x_test,regressor.predict(x_test),color="green")
+plt.title("Hours VS scores (learning set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
 plt.show()
+mse=mean_squared_error(y_test,y_pred)
+print('MSE = ',mse)
+mae=mean_absolute_error(y_test,y_pred)
+print('MAE = ',mae)
+import numpy as np
+rmse=np.sqrt(mse)
+print('RMSE = ',rmse)
 ```
-
-
 ## Output:
-![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/ff862789-e085-4f1e-bda8-8c8d51f73aba)
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/f14e4cb3-c4f3-49f5-abf1-a5f9ad544f10)
 
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/ae92fdf7-63db-43a2-bb16-56609e6f86ee)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/0a1510e7-ea6f-40c8-ae8e-2fafcc41eb06)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/6791134e-c3e6-4dbc-a964-d7addfd29ff7)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/47613689-a1a6-4a0f-bbef-572211ce556d)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/0850b263-1004-44d9-bcb4-683b3d1d8967)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/14de8910-7ad5-4ab1-95cd-c68a79850f17)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/830fc6ca-8802-4dc6-bf92-bb2da4b9a478)
+
+![image](https://github.com/Adithya-Siddam/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/93427248/8e2826e2-988a-44bc-8b21-d1e81f564120)
 
 
 ## Result:
